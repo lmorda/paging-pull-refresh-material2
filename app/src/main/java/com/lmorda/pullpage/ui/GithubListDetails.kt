@@ -1,4 +1,4 @@
-package com.lmorda.pullpage
+package com.lmorda.pullpage.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.lmorda.pullpage.R
 import com.lmorda.pullpage.domain.GIthubOwnerDto
 import com.lmorda.pullpage.domain.GithubListDetailsDto
 

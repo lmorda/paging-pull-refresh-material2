@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Swipe Paging"
+rootProject.name = "Pull Page"
 include(":app")
  

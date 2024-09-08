@@ -1,8 +1,5 @@
-package com.lmorda.pullpage
+package com.lmorda.pullpage.ui
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +9,6 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Scaffold
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
@@ -21,47 +17,25 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.lmorda.pullpage.domain.GithubListDetailsDto
 
-class GithubListActivity : ComponentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContent {
-            Scaffold(
-                modifier = Modifier
-                    .padding(top = 16.dp)
-                    .fillMaxSize(),
-            ) { innerPadding ->
-                val viewModel = viewModel<GithubListViewModel>()
-                GithubList(
-                    innerPadding = innerPadding,
-                    viewModel = viewModel,
-                )
-            }
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun GithubList(
+internal fun GithubList(
     innerPadding: PaddingValues,
     viewModel: GithubListViewModel,
 ) {
     val githubRepos = viewModel.repos.collectAsLazyPagingItems()
 
-    val isSwipeToRefreshing = remember { mutableStateOf(false) }
+    val isPullToRefreshing = remember { mutableStateOf(false) }
 
     val pullRefreshState = rememberPullRefreshState(
-        refreshing = isSwipeToRefreshing.value,
+        refreshing = isPullToRefreshing.value,
         onRefresh = {
-            isSwipeToRefreshing.value = true
+            isPullToRefreshing.value = true
             githubRepos.refresh() // Trigger a refresh
         }
     )
@@ -77,7 +51,7 @@ fun GithubList(
             }
             // Handle pull to refresh indicator
             if (githubRepos.loadState.refresh !is LoadState.Loading) {
-                isSwipeToRefreshing.value = false
+                isPullToRefreshing.value = false
             }
             // Display loading indicator for initial load
             if (githubRepos.loadState.refresh == LoadState.Loading) {
