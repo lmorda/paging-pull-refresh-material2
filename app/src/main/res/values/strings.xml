@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Swipe Paging</string>
+    <string name="stargazers">%1$s Stargazers</string>
+    <string name="forks_under_construction">%1$s Forks under construction</string>
+</resources>
