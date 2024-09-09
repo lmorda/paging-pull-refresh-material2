@@ -2,7 +2,7 @@ package com.lmorda.pullpage.domain
 
 import com.google.gson.annotations.SerializedName
 
-data class GIthubOwnerDto(
+data class GithubOwnerDto(
     @SerializedName("login")
     val login: String?,
 

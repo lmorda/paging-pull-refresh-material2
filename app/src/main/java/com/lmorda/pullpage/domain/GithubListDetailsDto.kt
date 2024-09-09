@@ -19,5 +19,5 @@ data class GithubListDetailsDto(
     val stargazersCount: Int?,
 
     @SerializedName("owner")
-    val owner: GIthubOwnerDto,
+    val owner: GithubOwnerDto,
 )

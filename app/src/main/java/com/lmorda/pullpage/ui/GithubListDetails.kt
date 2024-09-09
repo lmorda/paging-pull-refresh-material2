@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.lmorda.pullpage.R
-import com.lmorda.pullpage.domain.GIthubOwnerDto
+import com.lmorda.pullpage.domain.GithubOwnerDto
 import com.lmorda.pullpage.domain.GithubListDetailsDto
 
 @Composable
@@ -160,7 +160,7 @@ fun GithubListDetailsPreview() {
         details = GithubListDetailsDto(
             id = 0,
             name = "my-application",
-            owner = GIthubOwnerDto("google", ""),
+            owner = GithubOwnerDto("google", ""),
             description = "description for google my application",
             stargazersCount = 345123,
             forksCount = 99,
