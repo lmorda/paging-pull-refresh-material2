@@ -152,7 +152,6 @@ private fun countPrettyString(value: Int): String {
     }
 }
 
-
 @Preview
 @Composable
 fun GithubListDetailsPreview() {

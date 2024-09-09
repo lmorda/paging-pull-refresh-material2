@@ -17,10 +17,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.lmorda.pullpage.domain.GithubListDetailsDto
-
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -82,6 +82,7 @@ private fun GithubRepoItem(repo: GithubListDetailsDto?) {
 private fun PagingLoadingIndicator() {
     CircularProgressIndicator(
         modifier = Modifier
+            .padding(top = 24.dp)
             .fillMaxWidth()
             .wrapContentWidth(
                 align = Alignment.CenterHorizontally,

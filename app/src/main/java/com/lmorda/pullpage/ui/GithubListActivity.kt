@@ -9,6 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.lmorda.pullpage.ui.theme.PullPageTheme
 
 class GithubListActivity : ComponentActivity() {
 
@@ -16,16 +17,16 @@ class GithubListActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Scaffold(
-                modifier = Modifier
-                    .padding(top = 16.dp)
-                    .fillMaxSize(),
-            ) { innerPadding ->
-                val viewModel = viewModel<GithubListViewModel>()
-                GithubList(
-                    innerPadding = innerPadding,
-                    viewModel = viewModel,
-                )
+            PullPageTheme {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                ) { innerPadding ->
+                    val viewModel = viewModel<GithubListViewModel>()
+                    GithubList(
+                        innerPadding = innerPadding,
+                        viewModel = viewModel,
+                    )
+                }
             }
         }
     }
